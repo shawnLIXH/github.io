@@ -3,110 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>李光翔的GitHub.io</title>
+  <title>李光翔的 GitHub.io</title>
   <style>
+    :root {
+      --bg: #0d0d0d;
+      --card: #1a1a1a;
+      --accent: #4a90e2;
+      --text: #e6e6e6;
+      --muted: #999;
+    }
     body {
-      font-family: "Microsoft JhengHei", sans-serif;
-      line-height: 1.8;
       margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
     header {
       text-align: center;
-      padding: 2rem;
-      background: #4a90e2;
-      color: white;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #111, #222);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(74,144,226,0.15) 0%, transparent 70%);
+      animation: pulse 8s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.3); opacity: 0.4; }
     }
     header img {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      border: 4px solid var(--accent);
       object-fit: cover;
       margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(74,144,226,0.6);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #111;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
     }
     main {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
     }
     h2 {
-      border-left: 6px solid #4a90e2;
-      padding-left: 0.5rem;
-      margin-top: 2rem;
-      color: #4a90e2;
+      border-left: 6px solid var(--accent);
+      padding-left: 0.6rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(74,144,226,0.5);
     }
     ul {
       padding-left: 1.2rem;
     }
-    a {
-      color: #4a90e2;
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #111;
+      color: var(--muted);
+      font-size: 0.9rem;
+      position: relative;
+    }
+    footer a {
+      color: var(--accent);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      display: none;
+      transition: background 0.3s;
+    }
+    #backToTop:hover {
+      background: #357ABD;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="H50207105-0.JPG" alt="個人照片">
+  <header id="top">
+    <img src="avatar.jpg" alt="個人照片">
     <h1>李光翔</h1>
-    <p>Email: <a href="mailto:steff0932@gmail.com" style="color:white;">steff0932@gmail.com</a></p>
+    <p>Email: <a href="mailto:steff0932@gmail.com">steff0932@gmail.com</a></p>
     <p>電話: 0903-916-089</p>
   </header>
 
+  <nav>
+    <a href="#recommenders">推薦人</a>
+    <a href="#education">學歷</a>
+    <a href="#experience">經驗</a>
+    <a href="#skills">技能</a>
+    <a href="#certs">證照</a>
+  </nav>
+
   <main>
-    <h2>推薦人</h2>
-    <p>陳隆輝 教授兼系主任｜國立高雄師範大學<br>Email: <a href="mailto:lhchen@nknu.edu.tw">lhchen@nknu.edu.tw</a></p>
-    <p>吳若瑋 助研究員兼副主任｜中華經濟研究院第一研究所<br>Email: <a href="mailto:sabrina_wu@cier.edu.tw">sabrina_wu@cier.edu.tw</a></p>
+    <section id="recommenders">
+      <h2>推薦人</h2>
+      <div class="card">
+        陳隆輝 教授兼系主任<br>
+        國立高雄師範大學<br>
+        Email: lhchen@nknu.edu.tw
+      </div>
+      <div class="card">
+        吳若瑋 助研究員兼副主任<br>
+        中華經濟研究院第一研究所<br>
+        Email: sabrina_wu@cier.edu.tw
+      </div>
+    </section>
 
-    <h2>學歷</h2>
-    <ul>
-      <li>國立中山大學 中國與亞太區域研究所 (經濟組) 碩二 (2023/09-2025/07)</li>
-      <li>國立高雄師範大學 企業管理學系 (學士, 2018/09-2021/01)</li>
-      <li>致理科技大學 財務金融系 (副學士, 2013/09-2018/06)</li>
-    </ul>
+    <section id="education">
+      <h2>學歷</h2>
+      <div class="card">國立中山大學 中國與亞太區域研究所（經濟組）碩二 (2023/09–2025/07)</div>
+      <div class="card">國立高雄師範大學 企業管理系（學士）、財務金融系（副學士）</div>
+    </section>
 
-    <h2>工作與實習經驗</h2>
-    <ul>
-      <li>安永諮詢服務股份有限公司｜初階諮詢管理顧問 (2021/08-2022/02)<br>協助銀行巴賽爾協定、SQL資料分析、風險性資產系統設計</li>
-      <li>戰國策國際顧問公司 顧問部｜公共議題研究員 (2023/02-2023/07)<br>撰寫立法院質詢稿、醫療/農業/綠能專案研究</li>
-      <li>中華經濟研究院｜計畫助理 (2019/11-2020/12, 2023/10-2024/12)<br>南部產業研究、政府質詢稿、計畫案撰寫</li>
-      <li>美食映象整合行銷顧問股份有限公司｜網路行銷企劃實習生 (2019/07-2019/08)<br>雜誌文案撰寫、廣告投放優化</li>
-    </ul>
+    <section id="experience">
+      <h2>工作與實習經驗</h2>
+      <div class="card">安永諮詢服務股份有限公司 初階顧問 (2021/08–2022/02)</div>
+      <div class="card">戰國策國際顧問公司 公共議題研究員 (2023/02–2023/07)</div>
+      <div class="card">中華經濟研究院 計畫助理 (2019/11–2020/12, 2023/10–2024/12)</div>
+      <div class="card">美食映象整合行銷顧問公司 實習生 (2019/07–2019/08)</div>
+    </section>
 
-    <h2>技能與專長</h2>
-    <ul>
-      <li>研究與分析：研究報告撰寫、資料彙整、問卷設計、統計圖表製作</li>
-      <li>行銷與寫作：雜誌文案撰寫、部落格審稿、廣告投放 (降低CPC、提升流量)</li>
-      <li>程式與工具：SQL、SPSS、Python (IBM Applied Data Science)、Word、Excel、PowerPoint</li>
-      <li>團隊合作：簡報製作、數據視覺化、提案報告、工作分配、意見整合</li>
-    </ul>
+    <section id="skills">
+      <h2>技能與專長</h2>
+      <div class="card">
+        研究與專題執行、計畫案撰寫、問卷設計、統計圖表製作、研究報告與資料分析
+      </div>
+      <div class="card">
+        工具：Word、Excel、PowerPoint、SQL、SPSS、Python
+      </div>
+    </section>
 
-    <h2>證照與專案</h2>
-    <ul>
-      <li>TQC╱EEC</li>
-      <li>CERPS 企業電子化助理規劃師</li>
-      <li>ERP 規劃師 & ERP基礎檢定 (學、術科)</li>
-      <li>Google 數位行銷證照</li>
-      <li>《刻意練習曲：藝文興創管理個案習作》共同作者</li>
-    </ul>
-
-    <h2>校內活動與成就</h2>
-    <ul>
-      <li>校外科技創新競賽：遠距美妝電商平台 獲第二名</li>
-      <li>高師大USR：凱旋青年夜市行銷影片 獲銀獎 (第二名)</li>
-      <li>會計學助教、財金英文期末發表主持人</li>
-      <li>國立高雄師範大學 羽球社社員、舞蹈社</li>
-      <li>宏遠社：兒童服務性社團，規劃活動與教學課綱</li>
-    </ul>
+    <section id="certs">
+      <h2>證照</h2>
+      <div class="card">TQC╱EEC 電子商務概論</div>
+      <div class="card">ERP規劃師 & 基礎檢定 (學術科)</div>
+      <div class="card">Google 數位行銷證照</div>
+    </section>
   </main>
+
+  <footer>
+    <p>© <span id="year"></span> 李光翔 | <a href="#top">回到頂部</a></p>
+  </footer>
+
+  <button id="backToTop">⬆</button>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
-
-
