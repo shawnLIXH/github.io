@@ -1,225 +1,253 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>李光翔的 GitHub.io</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>李光翔｜個人首頁</title>
+  <meta name="description" content="李光翔（HSIANG Li）的個人首頁：研究AI與台灣影視產業、編劇工作流程、LED虛擬製作與文化政策。" />
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --card: #1a1a1a;
-      --accent: #4a90e2;
-      --text: #e6e6e6;
-      --muted: #999;
+    :root{
+      --bg: #0b0c10;
+      --card: #111217;
+      --text: #e8ecf2;
+      --muted: #a6adbb;
+      --brand: #6ad1ff;
+      --accent: #a3ffb1;
+      --stroke: #1a1d25;
+      --link: #7ad3ff;
     }
-    body {
-      margin: 0;
-      font-family: "Microsoft JhengHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb; --card:#ffffff; --text:#111217; --muted:#5b6573; --stroke:#e8ebf3; --link:#006ad4;
+      }
     }
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, #111, #222);
-      position: relative;
-      overflow: hidden;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font: 16px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", Arial, sans-serif;
+      color:var(--text); background:radial-gradient(1200px 600px at 80% -10%, rgba(106,209,255,.08), transparent 60%), radial-gradient(900px 500px at -10% 10%, rgba(163,255,177,.06), transparent 60%), var(--bg);
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(74,144,226,0.15) 0%, transparent 70%);
-      animation: pulse 8s infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(1); opacity: 0.8; }
-      to { transform: scale(1.3); opacity: 0.4; }
-    }
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(74,144,226,0.6);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    header p a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background: #111;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      border-left: 6px solid var(--accent);
-      padding-left: 0.6rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(74,144,226,0.5);
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #111;
-      color: var(--muted);
-      font-size: 0.9rem;
-      position: relative;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      display: none;
-      transition: background 0.3s;
-    }
-    #backToTop:hover {
-      background: #357ABD;
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(10px); background:color-mix(in oklab, var(--bg) 75%, transparent); border-bottom:1px solid var(--stroke); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .nav a{padding:10px 12px; border-radius:12px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--accent)); box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .name{font-size:18px; font-weight:700}
+    .menu{display:flex; gap:6px; flex-wrap:wrap}
+
+    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; padding:52px 0}
+    .hero h1{font-size:36px; line-height:1.2; margin:0 0 8px}
+    .kicker{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--stroke); border-radius:999px; background:color-mix(in oklab, var(--card) 80%, transparent)}
+    .sub{font-size:18px; color:var(--muted); margin:10px 0 20px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:10px 14px; border-radius:12px; border:1px solid var(--stroke); background:var(--card); color:var(--text); font-weight:600}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--accent)); color:#071317; border:none}
+
+    .card-grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px}
+    .card{grid-column: span 6; background:var(--card); border:1px solid var(--stroke); border-radius:18px; padding:18px}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:6px 0 0; color:var(--muted)}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{font-size:12px; color:var(--muted); padding:4px 8px; border:1px dashed var(--stroke); border-radius:999px}
+
+    .section{padding:24px 0}
+    .section h2{font-size:22px; margin:0 0 14px}
+
+    .timeline{display:grid; gap:12px}
+    .t{display:grid; grid-template-columns: 120px 1fr; gap:16px; align-items:start; background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:14px}
+    .t .when{font-weight:700; color:var(--muted)}
+    .t .what{margin:0}
+
+    footer{margin-top:36px; padding:24px 0; border-top:1px solid var(--stroke); color:var(--muted)}
+
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .card{grid-column: span 12}
     }
   </style>
 </head>
 <body>
-  <header id="top">
-    <img src="avatar.jpg" alt="個人照片">
-    <h1>李光翔</h1>
-    <p>Email: <a href="mailto:steff0932@gmail.com">steff0932@gmail.com</a></p>
-    <p>電話: 0903-916-089</p>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="name">李光翔 HSIANG Li</div>
+      </div>
+      <nav class="menu" aria-label="主選單">
+        <a href="#about">關於我</a>
+        <a href="#research">研究焦點</a>
+        <a href="#work">近期工作</a>
+        <a href="#notes">筆記與寫作</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#recommenders">推薦人</a>
-    <a href="#education">學歷</a>
-    <a href="#experience">經驗</a>
-    <a href="#skills">技能</a>
-    <a href="#certs">證照</a>
-  </nav>
-
-  <main>
-    <section id="recommenders">
-      <h2>推薦人</h2>
-      <div class="card">
-        陳隆輝 教授兼系主任<br>
-        國立高雄師範大學<br>
-        Email: lhchen@nknu.edu.tw
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero" id="about">
+      <div>
+        <div class="kicker"><span class="pill">研究生</span><span class="pill">影視 × AI</span><span class="pill">台灣</span></div>
+        <h1>把生成式 AI 帶進影視現場，
+          <br />用研究與對話補上產業的實務落差。</h1>
+        <p class="sub">我關注台灣影視產業在 <strong>AI 與新技術</strong>的採用：從編劇工作流程、LED 虛擬製作，到文化政策與產業協作；也持續閱讀與討論<strong>榮格心理學</strong>，思考個體與文化的互動。</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">查看近期工作</a>
+          <a class="btn" href="#contact">聯絡我</a>
+        </div>
       </div>
       <div class="card">
-        吳若瑋 助研究員兼副主任<br>
-        中華經濟研究院第一研究所<br>
-        Email: sabrina_wu@cier.edu.tw
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>學歷</h2>
-      <div class="card">國立中山大學 中國與亞太區域研究所（經濟組）碩二 (2023/09–2025/07)</div>
-      <div class="card">國立高雄師範大學 企業管理系（學士）、財務金融系（副學士）</div>
-    </section>
-
-    <section id="experience">
-      <h2>工作與實習經驗</h2>
-      <div class="card">安永諮詢服務股份有限公司 初階顧問 (2021/08–2022/02)</div>
-      <div class="card">戰國策國際顧問公司 公共議題研究員 (2023/02–2023/07)</div>
-      <div class="card">中華經濟研究院 計畫助理 (2019/11–2020/12, 2023/10–2024/12)</div>
-      <div class="card">美食映象整合行銷顧問公司 實習生 (2019/07–2019/08)</div>
-    </section>
-
-    <section id="skills">
-      <h2>技能與專長</h2>
-      <div class="card">
-        研究與專題執行、計畫案撰寫、問卷設計、統計圖表製作、研究報告與資料分析
-      </div>
-      <div class="card">
-        工具：Word、Excel、PowerPoint、SQL、SPSS、Python
+        <h3>目前專題｜碩論研究</h3>
+        <p>主題：<strong>台灣中小型影視製作團隊的 AI 導入挑戰與未來趨勢</strong>。方法以質性訪談為主，聚焦編劇與製作端的實務經驗、限制與文化差異。</p>
+        <div class="tagrow">
+          <span class="tag">生成式 AI</span>
+          <span class="tag">編劇工作流程</span>
+          <span class="tag">LED 虛擬製作</span>
+          <span class="tag">文化政策</span>
+          <span class="tag">質性訪談</span>
+        </div>
       </div>
     </section>
 
-    <section id="certs">
-      <h2>證照</h2>
-      <div class="card">TQC╱EEC 電子商務概論</div>
-      <div class="card">ERP規劃師 & 基礎檢定 (學術科)</div>
-      <div class="card">Google 數位行銷證照</div>
+    <!-- Research Focus -->
+    <section class="section" id="research">
+      <h2>研究焦點</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>生成式 AI × 編劇</h3>
+          <p>探討台灣編劇如何使用 AI 進行田野資料蒐集、靈感擴充、版本管理與協作；評估效益與限制。</p>
+          <div class="tagrow">
+            <span class="tag">採訪：呂蒔媛等</span>
+            <span class="tag">工作流程設計</span>
+            <span class="tag">倫理與版權</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>製片管理數位化</h3>
+          <p>關注 Kweichin Films 與 Arong Studio 於 TCCF 展示之「影視製作雲端管理平台」，觀察中小團隊採行門檻。</p>
+          <div class="tagrow">
+            <span class="tag">預算與基礎設施</span>
+            <span class="tag">導入阻力</span>
+            <span class="tag">人員培訓</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>LED 虛擬攝影棚</h3>
+          <p>梳理虛擬製作在台灣的產業現況、政府補助與拍攝流程創新，盤點可行的導入路徑。</p>
+          <div class="tagrow">
+            <span class="tag">資源配置</span>
+            <span class="tag">跨域合作</span>
+            <span class="tag">技術限制</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>榮格心理學的當代應用</h3>
+          <p>以集體無意識、原型與情結為線索，對照影視創作與觀眾回應，思考文化母題的在地化。</p>
+          <div class="tagrow">
+            <span class="tag">原型分析</span>
+            <span class="tag">敘事母題</span>
+            <span class="tag">文化脈絡</span>
+          </div>
+        </article>
+      </div>
     </section>
+
+    <!-- Recent Work -->
+    <section class="section" id="work">
+      <h2>近期工作與採訪</h2>
+      <div class="timeline">
+        <div class="t">
+          <div class="when">2025-06 ▸ 現在</div>
+          <p class="what"><strong>碩論第4章撰寫：</strong>新技術（LED 虛擬製作、生成式 AI）在台灣影視的挑戰與趨勢，聚焦預算、基礎建設、政府政策、OTT 策略與跨域合作。</p>
+        </div>
+        <div class="t">
+          <div class="when">2025-06</div>
+          <p class="what"><strong>研究設計擴充：</strong>以質性訪談法深入分析台灣編劇實務使用 AI 的好處、限制與文化差異。</p>
+        </div>
+        <div class="t">
+          <div class="when">2025-04</div>
+          <p class="what"><strong>訪談啟動：</strong>自編劇呂蒔媛開始，探討生成式 AI 對編劇流程與協作的影響。</p>
+        </div>
+        <div class="t">
+          <div class="when">2025-02</div>
+          <p class="what"><strong>專題關注：</strong>小型製作團隊導入 AI 的挑戰、評估與實作案例。</p>
+        </div>
+        <div class="t">
+          <div class="when">2024-11</div>
+          <p class="what"><strong>產業觀察：</strong>關注高雄電影節相關受訪者對 AI 的觀點，整理影響製作流程的替代與創新。</p>
+        </div>
+        <div class="t">
+          <div class="when">2024-10</div>
+          <p class="what"><strong>TCCF 研究：</strong>追蹤 Kweichin Films × Arong Studio「影視製作雲端管理平台」展示與後續應用。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="section" id="notes">
+      <h2>筆記與寫作</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>研究方法與資料治理</h3>
+          <p>質性訪談流程、逐字稿與編碼、APA 引用偏好與中文書寫細節（例如：中文文內作品名斜體、會議論文格式等）。</p>
+          <div class="tagrow">
+            <span class="tag">質性研究</span>
+            <span class="tag">APA 風格</span>
+            <span class="tag">研究倫理</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>產業觀察短評</h3>
+          <p>AI 在製作端的實務落差、導入成本與訓練，及 OTT 平台策略對內容型態的牽引。</p>
+          <div class="tagrow">
+            <span class="tag">實務落差</span>
+            <span class="tag">成本—效益</span>
+            <span class="tag">市場動態</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2>聯絡</h2>
+      <div class="card">
+        <p>合作訪談、研究交流或演講邀約，歡迎來信。也可以在 GitHub 與我互動。</p>
+        <p>
+          📧 Email：<a href="mailto:your.name@example.com">your.name@example.com</a><br />
+          💻 GitHub：<a href="https://github.com/" target="_blank" rel="noreferrer noopener">github.com/你的帳號</a>
+        </p>
+        <p style="color:var(--muted); font-size:14px">（為保護隱私，上列聯絡資料為範例；部署前請替換為你的實際資訊。）</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap" style="padding:0">
+        <small>© <span id="y"></span> 李光翔 HSIANG Li · 以研究連接創作與產業</small>
+      </div>
+    </footer>
   </main>
 
-  <footer>
-    <p>© <span id="year"></span> 李光翔 | <a href="#top">回到頂部</a></p>
-  </footer>
-
-  <button id="backToTop">⬆</button>
-
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    // 動態年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 平滑捲動（瀏覽器原生行為為主，舊版瀏覽器降級為瞬間捲動）
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if (id.length>1){
+          const el = document.querySelector(id);
+          if (el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      });
     });
   </script>
 </body>
 </html>
+
